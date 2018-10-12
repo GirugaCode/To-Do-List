@@ -1,0 +1,10 @@
+<!-- todos-index -->
+<h1>To-Dos</h1>
+
+<a href="/todos/new">New To-Do</a>
+
+<div class = "row">
+{{#each todos}}
+  <h2><a href="/todos/{{this._id}}">{{this.title}}</a></h2>
+{{/each}}
+</div>
