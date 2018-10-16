@@ -11,7 +11,15 @@
     </form></p>
     <hr>
 
-    <!-- Comment form -->
+    <!-- Activity form -->
     {{> activity-form}}
+
+    </hr>
+
+    <!-- Show Activities -->
+    {{#each activities}}
+      {{> activity}}
+    {{/each}}
+
   </div>
 </div>

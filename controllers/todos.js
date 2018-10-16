@@ -1,5 +1,5 @@
 //todos.js
-module.exports = function (app, Todo) {
+module.exports = function (app, Todo, Activity) {
 
   app.get('/', (req, res) => {
     Todo.find()
@@ -7,7 +7,6 @@ module.exports = function (app, Todo) {
         res.render('todos-index', {todos: todos});
       })
       .catch(err => {
-
         res.status(404).send(err);
       });
   });
@@ -16,10 +15,15 @@ module.exports = function (app, Todo) {
   app.get('/todos/:id', (req, res) => {
     // find todo
     Todo.findById(req.params.id).then(todo => {
-        res.render('todos-show', { todo: todo})
-      }).catch((err) => {
-      // catch errors
-    });
+      Activity.find({ todoId: req.params.id }).then(activities => {
+       // respond with the template with both values
+        res.render('todos-show', { todo: todo, activities: activities })
+       }) .catch((err) => {
+       // catch errors
+       console.log(err.message)
+     });
+      })// fetch its activities
+
 });
 
 }

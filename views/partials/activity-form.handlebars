@@ -1,13 +1,24 @@
-<!-- views/partials/comment-form.handlebars -->
+<!-- views/partials/activity-form.handlebars -->
 
-<form>
+<form action="/todos/activities" method="post">
+
   <fieldset>
+    <input type="hidden" value="{{todo._id}}" name="todoId">
     <legend>Update your activity on the task</legend>
+      <!-- DATE -->
+  <div class="form-group">
+    <label for="comment-title">What is the Date?</label><br>
+    <input class="form-control"
+      id="comment-title"
+      type="text"
+      name="title"
+      placeholder="MM/DD/YYYY"/>
+  </div>
     <!-- DESCRIPTION -->
     <div class="form-group">
-      <label for="comment-content">Activity Log</label><br>
+      <label for="activity-content">Activity Log</label><br>
       <textarea class="form-control"
-      id="comment-content"
+      id="activity-content"
       name="content"
       rows="10"
       placeholder="How is it going so far?"/></textarea>

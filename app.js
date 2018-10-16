@@ -2,6 +2,7 @@ const exphbs = require('express-handlebars');
 const todoController = require('./controllers/todos');
 const mongoose = require('mongoose');
 const Todo = require('./models/todo')
+const Activity = require('./models/activity')
 const express = require('express')
 const methodOverride = require('method-override')
 const app = express()
@@ -86,8 +87,10 @@ app.listen(process.env.PORT || 3000, () => {
 })
 
 var todoRoutes = require('./controllers/todos')
+var activityRoutes = require('./controllers/activities')
 
-todoRoutes(app, Todo);
+todoRoutes(app, Todo, Activity);
+activityRoutes(app, Activity);
 
 
 module.exports = app;
