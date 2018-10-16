@@ -13,4 +13,14 @@ module.exports = (app, Activity) => {
     });
   });
 
+  // DELETE
+  app.delete('/todos/activities/:id', function (req, res) {
+    console.log("DELETE activity")
+    Activity.findByIdAndRemove(req.params.id).then((activity) => {
+      res.redirect(`/todos/${activity.todoId}`);
+    }).catch((err) => {
+      console.log(err.message);
+    });
+  });
+
 }
