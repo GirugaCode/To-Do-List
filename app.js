@@ -78,7 +78,7 @@ app.get('/', (req, res) => {
 })
 
 // const mongoose = require('mongoose');
-const mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost:27017/Todo-lists';
+const mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost:27017/todos';
 mongoose.connect(mongoUrl, {useNewUrlParser: true});
 
 app.listen(process.env.PORT || 3000, () => {

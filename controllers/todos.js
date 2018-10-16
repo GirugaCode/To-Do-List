@@ -7,7 +7,8 @@ module.exports = function (app, Todo) {
         res.render('todos-index', {todos: todos});
       })
       .catch(err => {
-        console.log(err);
+
+        res.status(404).send(err);
       });
   });
 
